@@ -1,0 +1,14 @@
+{
+  "name": "week1",
+  "version": "1.0.0",
+  "description": "## Agenda",
+  "main": "async-create.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}

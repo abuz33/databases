@@ -1,0 +1,136 @@
+[
+    {
+        "author_no" : 1,
+        "author_name":"Timothy Berners-Lee", 
+        "university": "University of South Hampton",
+        "date_of_birth":"1955-06-08",
+        "h_index": 55,
+        "gender": "M"
+    },
+    {
+        "author_no" : 2,
+        "author_name":"Stephen Hawking", 
+        "university": "University of Oxford",
+        "date_of_birth":"1942-01-08",
+        "h_index": 72,
+        "gender": "M",
+        "friend" : 1
+    },
+    {
+        "author_no" : 3,
+        "author_name":"Jane Goodall", 
+        "university": "Rice University",
+        "date_of_birth":"1955-06-08",
+        "h_index": 29,
+        "gender": "F",
+        "friend" : 2
+    },
+    {
+        "author_no" : 4,
+        "author_name":"Alan Guth", 
+        "university": "University of Oxford",
+        "date_of_birth":"1955-06-08",
+        "h_index": 30,
+        "gender": "M",
+        "friend" : 3
+    },
+    {
+        "author_no" : 5,
+        "author_name":"Ashoke Sen", 
+        "university": "Harvard University",
+        "date_of_birth":"1955-06-08",
+        "h_index": 18,
+        "gender": "M",
+        "friend" : 4
+    },
+    {
+        "author_no" : 6,
+        "author_name":"James Watson", 
+        "university": "MIT",
+        "date_of_birth":"1955-06-08",
+        "h_index": 39,
+        "gender": "M",
+        "friend" : 5
+    },
+    {
+        "author_no" : 7,
+        "author_name":"Tu Youyou", 
+        "university": "University of Tokyo",
+        "date_of_birth":"1955-06-08",
+        "h_index": 52,
+        "gender": "F",
+        "friend" : 6
+    },
+{
+        "author_no" : 8,
+        "author_name":"Noam Chomsky", 
+        "university": "Harvard University",
+        "date_of_birth":"1955-06-08",
+        "h_index": 48,
+        "gender": "M",
+        "friend" : 7
+    },
+    {
+        "author_no" : 9,
+        "author_name":"Shinya Yamanaka", 
+        "university": "Rice University.",
+        "date_of_birth":"1955-06-08",
+        "h_index": 65,
+        "gender": "M",
+        "friend" : 5
+    },
+    {
+        "author_no" : 10,
+        "author_name":"Elizabeth Blackburn", 
+        "university": "MIT",
+        "date_of_birth":"1955-06-08",
+        "h_index": 43,
+        "gender": "F",
+        "friend" : 8
+    },
+    {
+        "author_no" : 11,
+        "author_name":"Alain Aspect", 
+        "university": "Columbia University",
+        "date_of_birth":"1955-06-08",
+        "h_index": 38,
+        "gender": "M",
+        "friend" : 4
+    },
+    {
+        "author_no" : 12,
+        "author_name":"Margaret Geller", 
+        "university": "Utrecht University",
+        "date_of_birth":"1955-06-08",
+        "h_index": 15,
+        "gender": "M",
+        "friend" : 11
+    },
+    {
+        "author_no" : 13,
+        "author_name":"Kary Mullis", 
+        "university": "University of Amsterdam",
+        "date_of_birth":"1955-06-08",
+        "h_index": 35,
+        "gender": "M",
+        "friend" : 12
+    },
+    {
+        "author_no" : 14,
+        "author_name":"Martin Karplus", 
+        "university": "University of Groningen",
+        "date_of_birth":"1955-06-08",
+        "h_index": 23,
+        "gender": "M",
+        "friend" : 13
+    },
+    {
+        "author_no" : 15,
+        "author_name":"Robert Marks II", 
+        "university": "Utrecht University",
+        "date_of_birth":"1955-06-08",
+        "h_index": 25,
+        "gender": "M",
+        "friend" : 14
+    }
+]
