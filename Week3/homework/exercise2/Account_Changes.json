@@ -1,0 +1,23 @@
+[
+  {
+    "from_account_no": "110",
+    "to_account_no": "111",
+    "amount": 100,
+    "changed_date": "2020-03-28",
+    "remark": "Approved by Manager"
+  },
+  {
+    "from_account_no": "104",
+    "to_account_no": "102",
+    "amount": 10000,
+    "changed_date": "2020-03-28",
+    "remark": "Declined due to insufficient amount in the account."
+  },
+  {
+    "from_account_no": "101",
+    "to_account_no": "106",   
+    "amount": 55.66,
+    "changed_date": "2020-03-28",
+    "remark": "Approved by Employee number 1."
+  }
+]

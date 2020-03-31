@@ -1,0 +1,170 @@
+* How can you convert the table into 1NF ?
+* What are the super, candidate, primary keys ?
+* What are the potential relationships between different possible tables ?
+* How can you develop the set of 2NF tables?
+* How can you develop the set of 3NF tables?
+```
+
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+| member_id | member_name   | member_address | dinner_id | dinner_date | venue_code | venue_description | food_code | food_description |
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+|         1 | Amit          | 325 Max park   | D00001001 | 2020-03-15  | B01        | Grand Ball Room   | C1, C2    | Curry, Cake      |
+|         2 | Ben           | 24 Hudson lane | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1, C2    | Soup, Cake       |
+|         3 | Cristina      | 516 6th Ave    | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1, C2    | Soup, Cake       |
+|         4 | Dan           | 89 John St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
+|         5 | Ema           | 91 Pixar St    | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
+|         6 | Fatima        | 56 8th Ave     | D00001004 | 2020-03-20  | B04        | Mama's Kitchen    | F1, M1    | Falafal, Mousse  |
+|         7 | Gabor         | 54 Vivaldi St  | D00001005 | 2020-02-20  | B05        | Hungry Hungary    | G1, P2    | Goulash, Pasca   |
+|         8 | Hema          | 9 Peter St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1, T1, M1| Pie, Tea, Mousse |
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+
+Question 1.) How can you convert the table into 1NF ?
+Answer 1.) The rules of 1NF indicates that in the table there cannot be two values for one column. If we check food_code and food_description there are two values.
+We have to correct them.
+
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+| member_id | member_name   | member_address | dinner_id | dinner_date | venue_code | venue_description | food_code | food_description |
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+|         1 | Amit          | 325 Max park   | D00001001 | 2020-03-15  | B01        | Grand Ball Room   | C1        | Curry            |
+|         1 | Amit          | 325 Max park   | D00001001 | 2020-03-15  | B01        | Grand Ball Room   | C2        | Cake             |
+|         2 | Ben           | 24 Hudson lane | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1        | Soup             |
+|         2 | Ben           | 24 Hudson lane | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | C2        | Cake             |
+|         3 | Cristina      | 516 6th Ave    | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1        | Soup             |
+|         3 | Cristina      | 516 6th Ave    | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | C2        | Cake             |
+|         4 | Dan           | 89 John St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1        | Pie              |
+|         4 | Dan           | 89 John St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | T1        | Tea              |
+|         4 | Dan           | 89 John St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | M1        | Mousse           |
+|         5 | Ema           | 91 Pixar St    | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1        | Pie              |
+|         5 | Ema           | 91 Pixar St    | D00001003 | 2020-03-20  | B03        | Goat Farm         | T1        | Tea              |
+|         5 | Ema           | 91 Pixar St    | D00001003 | 2020-03-20  | B03        | Goat Farm         | M1        | Mousse           |
+|         6 | Fatima        | 56 8th Ave     | D00001004 | 2020-03-20  | B04        | Mama's Kitchen    | F1        | Falafal          |
+|         6 | Fatima        | 56 8th Ave     | D00001004 | 2020-03-20  | B04        | Mama's Kitchen    | M1        | Mousse           |
+|         7 | Gabor         | 54 Vivaldi St  | D00001005 | 2020-02-20  | B05        | Hungry Hungary    | G1        | Goulash          |
+|         7 | Gabor         | 54 Vivaldi St  | D00001005 | 2020-02-20  | B05        | Hungry Hungary    | P2        | Pasca            |
+|         8 | Hema          | 9 Peter St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1        | Pie              |
+|         8 | Hema          | 9 Peter St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | T1        | Tea              |
+|         8 | Hema          | 9 Peter St     | D00001003 | 2020-03-20  | B03        | Goat Farm         | M1        | Mousse           |
++-----------+---------------+----------------+-----------+-------------+------------+-------------------+-----------+------------------+
+
+Question 2.) What are the super, candidate, primary keys ?
+Answer 2.) Super Keys =>  { member_id, member_address, dinner_id, venue_code,  food_code}
+
+Candidate Keys => { member_name, food_code } 
+                  { member_address, food_code }
+                  { member_address, food_description}
+
+Primary Key  Composite of (member_id + food_code + venue_code)
+
+
+Question 3.) What are the potential relationships between different possible tables ?
+Answer 3.) First there could be one `members` tables. It contains all the information about the member.
+Second, there could be a `venue` tables which has all the info about the venues.
+Third is food tables.
+
+member_id, member_address, member_name ==> Members TABLE
+venue_code, venue_description ==> Venue TABLE
+food_code, food_description ==> Food TABLE
+and last by using this tables we can recreate the table above.
+
+Question 4.) How can you develop the set of 2NF tables?
+Answer 4.) To make the table 2NF we have to make it partial dependant. e.g For that we can separate the member information from the table and can make another table.
+
+Members Table                                           
++-----------+---------------+----------------+     
+| member_id | member_name   | member_address |
++-----------+---------------+----------------+
+|         1 | Amit          | 325 Max park   |
+|         2 | Ben           | 24 Hudson lane |
+|         3 | Cristina      | 516 6th Ave    |
+|         4 | Dan           | 89 John St     |
+|         5 | Ema           | 91 Pixar St    |
+|         6 | Fatima        | 56 8th Ave     |
+|         7 | Gabor         | 54 Vivaldi St  |
+|         8 | Hema          | 9 Peter St     |
+|-----------+---------------+----------------+
+
+Food TABLE
++-----------+------------------+
+| food_code | food_description |
++-----------+------------------+
+| C1        | Curry            |
+| C2        | Cake             |
+| S1        | Soup             |
+| P1        | Pie              |
+| T1        | Tea              |
+| M1        | Mousse           |
+| F1        | Falafal          |
+| G1        | Goulash          |
+| P2        | Pasca            |
++-----------+------------------+
+
+
++-----------+-----------+-------------+------------+-------------------+-----------+
+| member_id | dinner_id | dinner_date | venue_code | venue_description | food_code |
++-----------+-----------+-------------+------------+-------------------+-----------+
+|         1 | D00001001 | 2020-03-15  | B01        | Grand Ball Room   | C1        |
+|         1 | D00001001 | 2020-03-15  | B01        | Grand Ball Room   | C2        |
+|         2 | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1        |
+|         2 | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | C2        |
+|         3 | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | S1        |
+|         3 | D00001002 | 2020-03-15  | B02        | Zoku Roof Top     | C2        |
+|         4 | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1        |
+|         4 | D00001003 | 2020-03-20  | B03        | Goat Farm         | T1        |
+|         4 | D00001003 | 2020-03-20  | B03        | Goat Farm         | M1        |
+|         5 | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1        |
+|         5 | D00001003 | 2020-03-20  | B03        | Goat Farm         | T1        |
+|         5 | D00001003 | 2020-03-20  | B03        | Goat Farm         | M1        |
+|         6 | D00001004 | 2020-03-20  | B04        | Mama's Kitchen    | F1        |
+|         6 | D00001004 | 2020-03-20  | B04        | Mama's Kitchen    | M1        |
+|         7 | D00001005 | 2020-02-20  | B05        | Hungry Hungary    | G1        |
+|         7 | D00001005 | 2020-02-20  | B05        | Hungry Hungary    | P2        |
+|         8 | D00001003 | 2020-03-20  | B03        | Goat Farm         | P1        |
+|         8 | D00001003 | 2020-03-20  | B03        | Goat Farm         | T1        |
+|         8 | D00001003 | 2020-03-20  | B03        | Goat Farm         | M1        |
++-----------+-----------+-------------+------------+-------------------+-----------+
+
+Now our table is shorter.
+
+Question 5.) How can you develop the set of 3NF tables?
+Answer 5.) For a table to be in the third normal form, 
+            1.) It should be in the Second Normal form.
+            2.) And it should not have Transitive Dependency.
+
+For the second part as you can see we have Transitive Dependency. To remove it we have remove venue and dinner information too.
+    Dinner TABLE                                      Venue TABLE
+  +-----------+-------------+                     +------------+-------------------+
+  | dinner_id | dinner_date |                     | venue_code | venue_description |
+  +-----------+-------------+                     +------------+-------------------+
+  | D00001001 | 2020-03-15  |                     | B01        | Grand Ball Room   |
+  | D00001002 | 2020-03-15  |                     | B02        | Zoku Roof Top     |
+  | D00001003 | 2020-03-20  |                     | B03        | Goat Farm         |
+  | D00001004 | 2020-03-20  |                     | B04        | Mama's Kitchen    |               
+  | D00001005 | 2020-02-20  |                     | B05        | Hungry Hungary    |                                           
+  +-----------+-------------+                     +------------+-------------------+                         
+
+
+Dinner_Orders_Members_Venue_Relations TABLE is ready.
++-----------+-----------+------------+-----------+
+| member_id | dinner_id | venue_code | food_code |
++-----------+-----------+------------+-----------+
+|         1 | D00001001 | B01        | C1        |
+|         1 | D00001001 | B01        | C2        |
+|         2 | D00001002 | B02        | S1        |
+|         2 | D00001002 | B02        | C2        |
+|         3 | D00001002 | B02        | S1        |
+|         3 | D00001002 | B02        | C2        |
+|         4 | D00001003 | B03        | P1        |
+|         4 | D00001003 | B03        | T1        |
+|         4 | D00001003 | B03        | M1        |
+|         5 | D00001003 | B03        | P1        |
+|         5 | D00001003 | B03        | T1        |
+|         5 | D00001003 | B03        | M1        |
+|         6 | D00001004 | B04        | F1        |
+|         6 | D00001004 | B04        | M1        |
+|         7 | D00001005 | B05        | G1        |
+|         7 | D00001005 | B05        | P2        |
+|         8 | D00001003 | B03        | P1        |
+|         8 | D00001003 | B03        | T1        |
+|         8 | D00001003 | B03        | M1        |
++-----------+-----------+------------+-----------+
+
