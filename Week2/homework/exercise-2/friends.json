@@ -1,0 +1,62 @@
+[
+    {
+        "author_no":1,
+        "friend": 5
+    },
+    {
+        "author_no":2,
+        "friend": 7
+    },
+    {
+        "author_no":3,
+        "friend": 4
+    },
+    {
+        "author_no":4,
+        "friend": 3
+    },
+    {
+        "author_no":5,
+        "friend": 6
+    },
+    {
+        "author_no":6,
+        "friend": 7
+    },
+    {
+        "author_no":7,
+        "friend": 2
+    },
+    {
+        "author_no":8,
+        "friend": 13
+    },
+    {
+        "author_no":9,
+        "friend": 8
+    },
+    {
+        "author_no":10,
+        "friend": 9
+    },
+    {
+        "author_no":11,
+        "friend": 15
+    },
+    {
+        "author_no":12,
+        "friend": 14
+    },
+    {
+        "author_no":13,
+        "friend": 10
+    },
+    {
+        "author_no":14,
+        "friend": 11
+    },
+    {
+        "author_no":15,
+        "friend": 12
+    }
+]

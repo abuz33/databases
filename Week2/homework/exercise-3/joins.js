@@ -15,16 +15,20 @@ async function seedDatabase() {
 
   const execQuery = util.promisify(connection.query.bind(connection));
 
-  const SHOW_FRIENDS = `SELECT A.author_name, B.author_name FROM authors AS A LEFT JOIN authors AS B ON A.author_no = B.friend;`;
+  const SHOW_FRIENDS = `SELECT A.author_name AS "Author Name", B.author_name AS "Friend" FROM authors AS B LEFT JOIN authors AS A ON B.author_no = A.friend;`;
 
-  const SHOW_PAPERS = `SELECT A.author_name, P.paper_title AS title FROM authors AS A left JOIN research_papers AS P
-  ON  A.author_no = P.author_no;`;
+  const SHOW_PAPERS = `SELECT A.*, P.paper_title AS title 
+    FROM authors AS A 
+    LEFT JOIN relations_authors_researches AS R
+    ON  A.author_no = R.author_no 
+    LEFT JOIN research_papers AS P
+    ON  R.paper_id = P.paper_id;`;
 
   connection.connect();
 
   try {
-    await execQuery(SHOW_FRIENDS);
-    await execQuery(SHOW_PAPERS);
+    console.log(await execQuery(SHOW_FRIENDS));
+    console.log(await execQuery(SHOW_PAPERS));
     
     connection.end();
   } catch (error) {
